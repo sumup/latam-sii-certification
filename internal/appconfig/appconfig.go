@@ -2,7 +2,10 @@ package appconfig
 
 import (
 	"flag"
+	"fmt"
+	"io/ioutil"
 	"os"
+	"path/filepath"
 
 	"github.com/joho/godotenv"
 	"github.com/rs/zerolog/log"
@@ -10,7 +13,6 @@ import (
 
 type Config struct {
 	Env               string
-	DriveBaseFolder   string
 	TaxAuthorityChile TaxAutChile
 	Flags
 }
@@ -42,18 +44,38 @@ func FromEnv() Config {
 	checkTaxToggle := flag.Bool("check_tax_toggle", false, "check in DWH if tax is enabled")
 	flag.Parse()
 
+	cert, err := getTaxAuthorityCertificate()
+	if err != nil {
+		log.Fatal().Err(err).Msg("Error reading tax authority certificate")
+	}
+
 	return Config{
 		os.Getenv("ENV"),
-		os.Getenv("DRIVE_BASE_FOLDER"),
 		TaxAutChile{
 			BaseURL:                  os.Getenv("TAX_AUTHORITY_CHILE_URL"),
 			AuthURL:                  os.Getenv("TAX_AUTHORITY_CHILE_AUTH_URL"),
 			SendTransactionsEndpoint: "/comprobanteboletaservice",
 			GetSeedEndpoint:          "/CrSeed.jws",
 			GetTokenEndpoint:         "/GetTokenFromSeed.jws",
+			SumUpRutBase:             os.Getenv("TAX_AUTHORITY_SUMUP_RUT_BASE"),
+			SumUpRutVerifier:         os.Getenv("TAX_AUTHORITY_SUMUP_RUT_VD"),
+			SumUpCertificate:         cert,
+			SumUpCertificateModulus:  os.Getenv("TAX_AUTHORITY_SUMUP_CERTIFICATE_MODULUS"),
+			SumUpCertificateExponent: os.Getenv("TAX_AUTHORITY_SUMUP_CERTIFICATE_EXPONENT"),
 		},
 		Flags{
 			CheckTaxToggle: checkTaxToggle,
 		},
 	}
+}
+
+func getTaxAuthorityCertificate() (string, error) {
+	dir, _ := os.Getwd()
+	file, err := ioutil.ReadFile(filepath.Clean(dir + "/tax-authority.pem"))
+
+	if err != nil {
+		return "", fmt.Errorf("errCannotReadTaxAuthorityCertificate")
+	}
+
+	return string(file), nil
 }

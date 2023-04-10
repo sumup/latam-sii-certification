@@ -44,7 +44,7 @@ func GenerateBatches() [][]entities.Batch {
 	// 48 con monto distinto a cero
 	batchesMatrix = append(batchesMatrix, []entities.Batch{
 		{
-			VatID:         "11222333-4", // valid rut
+			VatID:         "96965568-3", // valid rut
 			Day:           "2023-04-10",
 			DocumentType:  "48",
 			Channel:       "1", // 1 for cnp
@@ -52,7 +52,7 @@ func GenerateBatches() [][]entities.Batch {
 			NTransactions: 2,
 		},
 		{
-			VatID:         "11222333-4", // valid rut
+			VatID:         "96978044-5", // valid rut
 			Day:           "2023-04-10",
 			DocumentType:  "48",
 			Channel:       "1", // 1 for cnp
@@ -60,7 +60,7 @@ func GenerateBatches() [][]entities.Batch {
 			NTransactions: 2,
 		},
 		{
-			VatID:         "11222333-4", // valid rut
+			VatID:         "65537690-9", // valid rut
 			Day:           "2023-04-10",
 			DocumentType:  "48",
 			Channel:       "0", // 1 for cnp
@@ -68,7 +68,7 @@ func GenerateBatches() [][]entities.Batch {
 			NTransactions: 2,
 		},
 		{
-			VatID:         "11222333-4", // valid rut
+			VatID:         "39020493-0", // valid rut
 			Day:           "2023-04-10",
 			DocumentType:  "48",
 			Channel:       "0", // 1 for cnp
@@ -80,7 +80,7 @@ func GenerateBatches() [][]entities.Batch {
 	// 48 con monto cero
 	batchesMatrix = append(batchesMatrix, []entities.Batch{
 		{
-			VatID:         "11222333-4", // valid rut
+			VatID:         "69610726-2", // valid rut
 			Day:           "2023-04-10",
 			DocumentType:  "48",
 			Channel:       "1", // 1 for cnp
@@ -88,7 +88,7 @@ func GenerateBatches() [][]entities.Batch {
 			NTransactions: 2,
 		},
 		{
-			VatID:         "11222333-4", // valid rut
+			VatID:         "28474336-9", // valid rut
 			Day:           "2023-04-10",
 			DocumentType:  "48",
 			Channel:       "1", // 1 for cnp
@@ -96,7 +96,7 @@ func GenerateBatches() [][]entities.Batch {
 			NTransactions: 2,
 		},
 		{
-			VatID:         "11222333-4", // valid rut
+			VatID:         "85445473-0", // valid rut
 			Day:           "2023-04-10",
 			DocumentType:  "48",
 			Channel:       "0", // 1 for cnp
@@ -108,7 +108,7 @@ func GenerateBatches() [][]entities.Batch {
 	// factura
 	batchesMatrix = append(batchesMatrix, []entities.Batch{
 		{
-			VatID:         "11222333-4", // valid rut
+			VatID:         "94690304-3", // valid rut
 			Day:           "2023-04-10",
 			DocumentType:  "33",
 			Channel:       "1", // 1 for cnp
@@ -120,7 +120,7 @@ func GenerateBatches() [][]entities.Batch {
 	// no venta
 	batchesMatrix = append(batchesMatrix, []entities.Batch{
 		{
-			VatID:         "11222333-4", // valid rut
+			VatID:         "99.040414-3", // valid rut
 			Day:           "2023-04-10",
 			DocumentType:  "99",
 			Channel:       "1", // 1 for cnp
@@ -132,7 +132,7 @@ func GenerateBatches() [][]entities.Batch {
 	// dispositivo no reconoce tipo de venta
 	batchesMatrix = append(batchesMatrix, []entities.Batch{
 		{
-			VatID:         "11222333-4", // valid rut
+			VatID:         "61.116.878-0", // valid rut
 			Day:           "2023-04-10",
 			DocumentType:  "00",
 			Channel:       "1", // 1 for cnp
