@@ -35,10 +35,110 @@ func main() {
 		fmt.Errorf("Authentication error")
 		return
 	}
-	batchesMatrix := make([][]entities.Batch, 10)
+	batchesMatrix := GenerateBatches()
 	taxAuthorityGateway.SendMany(ctx, token, batchesMatrix)
 }
 
-func GenerateBatches(batches *[][]entities.Batch) {
+func GenerateBatches() [][]entities.Batch {
+	batchesMatrix := make([][]entities.Batch, 10)
+	// 48 con monto distinto a cero
+	batchesMatrix = append(batchesMatrix, []entities.Batch{
+		{
+			VatID:         "11222333-4", // valid rut
+			Day:           "2023-04-10",
+			DocumentType:  "48",
+			Channel:       "1", // 1 for cnp
+			Amount:        500,
+			NTransactions: 2,
+		},
+		{
+			VatID:         "11222333-4", // valid rut
+			Day:           "2023-04-10",
+			DocumentType:  "48",
+			Channel:       "1", // 1 for cnp
+			Amount:        500,
+			NTransactions: 2,
+		},
+		{
+			VatID:         "11222333-4", // valid rut
+			Day:           "2023-04-10",
+			DocumentType:  "48",
+			Channel:       "0", // 1 for cnp
+			Amount:        500,
+			NTransactions: 2,
+		},
+		{
+			VatID:         "11222333-4", // valid rut
+			Day:           "2023-04-10",
+			DocumentType:  "48",
+			Channel:       "0", // 1 for cnp
+			Amount:        500,
+			NTransactions: 2,
+		},
+	})
 
+	// 48 con monto cero
+	batchesMatrix = append(batchesMatrix, []entities.Batch{
+		{
+			VatID:         "11222333-4", // valid rut
+			Day:           "2023-04-10",
+			DocumentType:  "48",
+			Channel:       "1", // 1 for cnp
+			Amount:        0,
+			NTransactions: 2,
+		},
+		{
+			VatID:         "11222333-4", // valid rut
+			Day:           "2023-04-10",
+			DocumentType:  "48",
+			Channel:       "1", // 1 for cnp
+			Amount:        0,
+			NTransactions: 2,
+		},
+		{
+			VatID:         "11222333-4", // valid rut
+			Day:           "2023-04-10",
+			DocumentType:  "48",
+			Channel:       "0", // 1 for cnp
+			Amount:        0,
+			NTransactions: 2,
+		},
+	})
+
+	// factura
+	batchesMatrix = append(batchesMatrix, []entities.Batch{
+		{
+			VatID:         "11222333-4", // valid rut
+			Day:           "2023-04-10",
+			DocumentType:  "33",
+			Channel:       "1", // 1 for cnp
+			Amount:        10000,
+			NTransactions: 2,
+		},
+	})
+
+	// no venta
+	batchesMatrix = append(batchesMatrix, []entities.Batch{
+		{
+			VatID:         "11222333-4", // valid rut
+			Day:           "2023-04-10",
+			DocumentType:  "99",
+			Channel:       "1", // 1 for cnp
+			Amount:        10000,
+			NTransactions: 2,
+		},
+	})
+
+	// dispositivo no reconoce tipo de venta
+	batchesMatrix = append(batchesMatrix, []entities.Batch{
+		{
+			VatID:         "11222333-4", // valid rut
+			Day:           "2023-04-10",
+			DocumentType:  "00",
+			Channel:       "1", // 1 for cnp
+			Amount:        0,
+			NTransactions: 2,
+		},
+	})
+	return batchesMatrix
 }

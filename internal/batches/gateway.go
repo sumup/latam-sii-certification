@@ -214,17 +214,17 @@ func taxTransactions(batches []entities.Batch, rutSumUp, dvSumUp string) []xmlsc
 	for _, batch := range batches {
 		vatIDDivided := strings.Split(batch.VatID, "-")
 
-		docType := documentType(batch.HasTaxes)
-		channel := channelType(batch.IsCNP)
+		//docType := documentType(batch.HasTaxes)
+		//channel := channelType(batch.IsCNP)
 
-		trackID := trackIDOrDefault(batch.ExternalTrackID)
+		//trackID := trackIDOrDefault(batch.ExternalTrackID)
 
 		taxTx := xmlschema.TaxTransaccion{
 			RutInformante:         rutSumUp,
 			DvInformante:          dvSumUp,
 			RutContribuyente:      vatIDDivided[0],
 			DvContribuyente:       vatIDDivided[1],
-			TipoDocumento:         docType,
+			TipoDocumento:         batch.DocumentType,
 			FechaVenta:            batch.Day,
 			TotalMontoNeto:        strconv.FormatUint(batch.Amount, 10),
 			TotalMontoExento:      "0",
@@ -234,8 +234,8 @@ func taxTransactions(batches []entities.Batch, rutSumUp, dvSumUp string) []xmlsc
 			TotalMontoDonacion:    "0",
 			TotalMontoTransaccion: strconv.FormatUint(batch.Amount, 10),
 			TotalValesEmitidos:    strconv.Itoa(batch.NTransactions),
-			IdentificadorEnvio:    trackID,
-			CanalTransaccion:      channel,
+			IdentificadorEnvio:    batch.ExternalTrackID,
+			CanalTransaccion:      batch.Channel,
 		}
 		transactions = append(transactions, taxTx)
 	}

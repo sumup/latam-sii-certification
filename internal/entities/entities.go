@@ -30,6 +30,8 @@ type Batch struct {
 	ExternalTrackID string
 	Transactions    []Transaction
 	NTransactions   int
+	DocumentType    string
+	Channel         string
 	CreatedAt       time.Time
 	UpdatedAt       time.Time
 }
