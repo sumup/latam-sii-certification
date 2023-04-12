@@ -12,7 +12,7 @@ The purpose of this piece of code is to serve as a tool for sii's certification 
 | 00 (Unknown)   | 1        | Distinct to Zero |
 | 99 (No sell)  | 1        | Distinct to Zero |
 
-Considerations: 
+### Considerations: 
 - External Track ID must be zero
 - Number of transactions must be greater than zero
 - Channel:
@@ -22,4 +22,8 @@ Considerations:
 
 ## How to run 
 
+```sh
 make run
+```
+### Considerations:
+Before try to run it, you need to get the environment variables and respective certificate.
