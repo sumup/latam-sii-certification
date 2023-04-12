@@ -65,7 +65,7 @@ func GenerateBatches() [][]entities.Batch {
 			VatID:           "65537690-9", // valid rut
 			Day:             "2023-04-10",
 			DocumentType:    "48",
-			Channel:         "0", // 1 for cnp
+			Channel:         "0", // 0 for cnp
 			Amount:          500,
 			NTransactions:   2,
 			ExternalTrackID: "0",
@@ -74,7 +74,7 @@ func GenerateBatches() [][]entities.Batch {
 			VatID:           "39020493-0", // valid rut
 			Day:             "2023-04-10",
 			DocumentType:    "48",
-			Channel:         "0", // 1 for cnp
+			Channel:         "0", // 0 for cnp
 			Amount:          500,
 			NTransactions:   2,
 			ExternalTrackID: "0",
@@ -105,7 +105,7 @@ func GenerateBatches() [][]entities.Batch {
 			VatID:           "85445473-0", // valid rut
 			Day:             "2023-04-10",
 			DocumentType:    "48",
-			Channel:         "0", // 1 for cnp
+			Channel:         "0", // 0 for cnp
 			Amount:          0,
 			NTransactions:   2,
 			ExternalTrackID: "0",
@@ -145,7 +145,7 @@ func GenerateBatches() [][]entities.Batch {
 			Day:             "2023-04-10",
 			DocumentType:    "00",
 			Channel:         "1", // 1 for cnp
-			Amount:          0,
+			Amount:          2000,
 			NTransactions:   2,
 			ExternalTrackID: "0",
 		},
