@@ -152,6 +152,8 @@ func (g *Gateway) GetToken(ctx context.Context, seed string) (string, error) {
 		return "", errClientCallFailed
 	}
 
+	fmt.Printf("%s \n", tokenRespString)
+
 	getTokenResponse := xmlschema.GetTokenResponse{}
 	if err = xml.Unmarshal(tokenRespString, &getTokenResponse); err != nil {
 		return "", errCantUnmarshalResponse
@@ -176,9 +178,9 @@ func (g *Gateway) SendMany(ctx context.Context, token string, batchesMatrix [][]
 		var req xmlschema.SendTransactionsBody
 
 		req.Fill(transactions)
-
+		fmt.Println(token)
 		res, rAsString, err := g.SendTransactions(ctx, token, req)
-
+		fmt.Println(rAsString)
 		if err != nil {
 			modifyBatchesWithResponse(&batchesMatrix[i], entities.FailedStatus, err.Error())
 

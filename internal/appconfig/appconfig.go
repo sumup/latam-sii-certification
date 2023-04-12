@@ -71,11 +71,13 @@ func FromEnv() Config {
 
 func getTaxAuthorityCertificate() (string, error) {
 	dir, _ := os.Getwd()
+	//fmt.Println(dir)
 	file, err := ioutil.ReadFile(filepath.Clean(dir + "/tax-authority.pem"))
 
 	if err != nil {
 		return "", fmt.Errorf("errCannotReadTaxAuthorityCertificate")
 	}
+	fmt.Println(string(file))
 
 	return string(file), nil
 }
