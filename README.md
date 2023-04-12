@@ -26,4 +26,4 @@ The purpose of this piece of code is to serve as a tool for sii's certification 
 make run
 ```
 ### Considerations:
-Before try to run it, you need to get the environment variables and respective certificate.
+Before run the program, you need to get the environment variables and respective certificate.
