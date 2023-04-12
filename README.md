@@ -22,6 +22,6 @@ The purpose of this piece of code is to serve as a tool for sii's certification 
 
 ## How to run 
 
-```
+```sh
 make run
 ```
