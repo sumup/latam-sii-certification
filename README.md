@@ -12,7 +12,7 @@ The purpose of this piece of code is to serve as a tool for sii's certification 
 | 00 (Unkown)   | 1        | Distinct to Zero |
 | 99 (No sell)  | 1        | Distinct to Zero |
 
-Considerations: 
+### Considerations: 
 - External Track ID must be zero
 - Number of transactions must be greater than zero
 - Channel:
