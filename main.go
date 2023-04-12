@@ -41,7 +41,7 @@ func main() {
 
 func GenerateBatches() [][]entities.Batch {
 	batchesMatrix := make([][]entities.Batch, 10)
-	// 48 con monto distinto a cero
+	// document 48 with amount distinct to zero
 	batchesMatrix = append(batchesMatrix, []entities.Batch{
 		{
 			VatID:           "96965568-3", // valid rut
@@ -81,7 +81,7 @@ func GenerateBatches() [][]entities.Batch {
 		},
 	})
 
-	// 48 con monto cero
+	// document 48 with amount zero
 	batchesMatrix = append(batchesMatrix, []entities.Batch{
 		{
 			VatID:           "69610726-2", // valid rut
@@ -112,7 +112,7 @@ func GenerateBatches() [][]entities.Batch {
 		},
 	})
 
-	//factura
+	// document 33 (bill)
 	batchesMatrix = append(batchesMatrix, []entities.Batch{
 		{
 			VatID:           "94690304-3", // valid rut
@@ -125,7 +125,7 @@ func GenerateBatches() [][]entities.Batch {
 		},
 	})
 
-	// // no venta
+	// document 99 (no sell)
 	batchesMatrix = append(batchesMatrix, []entities.Batch{
 		{
 			VatID:           "99040414-3", // valid rut
@@ -138,7 +138,7 @@ func GenerateBatches() [][]entities.Batch {
 		},
 	})
 
-	// // dispositivo no reconoce tipo de venta
+	// document 00 (unknown)
 	batchesMatrix = append(batchesMatrix, []entities.Batch{
 		{
 			VatID:           "61116878-0", // valid rut

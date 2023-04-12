@@ -9,7 +9,7 @@ The purpose of this piece of code is to serve as a tool for sii's certification 
 | 48 (Voucher)  | 4        | Distinct to Zero |
 | 48 (Voucher)  | 3        | Zero             |
 | 33 (Bill)     | 1        | Distinct to Zero |
-| 00 (Unkown)   | 1        | Distinct to Zero |
+| 00 (Unknown)   | 1        | Distinct to Zero |
 | 99 (No sell)  | 1        | Distinct to Zero |
 
 Considerations: 
