@@ -77,7 +77,7 @@ func getTaxAuthorityCertificate() (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("errCannotReadTaxAuthorityCertificate")
 	}
-	fmt.Println(string(file))
+	//fmt.Println(string(file))
 
 	return string(file), nil
 }
